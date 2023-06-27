@@ -15,7 +15,7 @@ function App() {
     <>
       <Header />
       <Navbar />
-      <div className='h-screen mb-10'>
+      <div>
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='product' element={<ProductCatalogue />} />
