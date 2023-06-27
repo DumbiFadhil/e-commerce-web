@@ -1,24 +1,31 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { HomePage } from './pages/HomePage';
+import { AboutUs } from './pages/AboutUs';
+import { ContactUs } from './pages/ContactForm';
+import { ProductCatalogue } from './pages/ProductCatalogue';
+import { FilteredCatalogue } from './pages/FilteredCatalogue';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { Navbar } from './components/Navigation';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Navbar />
+      <div className='h-screen mb-10'>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='product' element={<ProductCatalogue />} />
+          <Route path='categories/:product_category' element={<FilteredCatalogue />} />
+          <Route path='about' element={<AboutUs />} />
+          <Route path='contact' element={<ContactUs />} />
+        </Routes>
+      </div>
+      <Footer />
+    </>
   );
 }
 
