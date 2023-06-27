@@ -14,6 +14,7 @@ export const ProductCatalogue = () => {
       })
       .catch(error => {
         setError('Error fetching data.');
+        console.log(error)
         setIsLoading(false);
       });
   }, []);
@@ -32,7 +33,7 @@ export const ProductCatalogue = () => {
                   <img src={`http://localhost:8000/static/images/${item[5]}`} className="w-full h-48 object-cover" alt="Product" />
                   <div className="mt-4">
                     <h5 className="text-xl font-semibold">{item[1]}</h5>
-                    <p className="text-gray-600">Price: Rp.{item[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
+                    <p className="text-gray-600">Price: Rp{item[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
                     <span className="text-gray-600">{item[4]} in stock</span>
                   </div>
                 </div>

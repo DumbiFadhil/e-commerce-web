@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+main {
+  height: fit-content;
+  margin-bottom: 400px;
+}
+
 input,
 textarea {
   border: 1px solid;
@@ -14,7 +19,7 @@ textarea {
 
 .marquee {
   white-space: nowrap;
-  animation: marquee 25s linear infinite;
+  animation: marquee 22s linear infinite;
 }
 
 @keyframes marquee {
@@ -22,7 +27,7 @@ textarea {
     transform: translateX(100%);
   }
   100% {
-    transform: translateX(-180%);
+    transform: translateX(-165%);
   }
 }
 

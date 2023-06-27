@@ -20,8 +20,8 @@ export const Navbar = () => {
 
   const categories = [
     ['Laptop', '/categories/laptop'],
-    ['Headphones', '/categories/headphones'],
-    ['Accessories', '/categories/accessories'],
+    ['Audio', '/categories/audio'],
+    ['Accessories', '/categories/accessory'],
     ['Gaming', '/categories/gaming'],
   ];
 
@@ -36,7 +36,7 @@ export const Navbar = () => {
       ].map(([title, url]) => {
         if (title === 'Categories') {
           return (
-            <div className="relative inline-block text-left" key={title}>
+            <div className="relative inline-block text-left z-50" key={title}>
               <div onMouseLeave={handleDropdownTimeout}>
                 <button
                   className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900 flex items-center"
