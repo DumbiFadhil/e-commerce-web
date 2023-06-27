@@ -20,8 +20,8 @@ export const Navbar = () => {
 
   const categories = [
     ['Laptop', '/categories/laptop'],
-    ['Headphones', '/categories/headphones'],
-    ['Accessories', '/categories/accessories'],
+    ['Audio', '/categories/audio'],
+    ['Accessories', '/categories/accessory'],
     ['Gaming', '/categories/gaming'],
   ];
 

@@ -14,6 +14,7 @@ export const ProductCatalogue = () => {
       })
       .catch(error => {
         setError('Error fetching data.');
+        console.log(error)
         setIsLoading(false);
       });
   }, []);
