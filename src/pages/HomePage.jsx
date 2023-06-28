@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ProductCarousel } from '../components/Carousel';
 
 export const HomePage = () => {
   const [data, setData] = useState(null);
@@ -20,21 +21,23 @@ export const HomePage = () => {
   }, []);
 
   return (
-    <main className='mb-auto h-screen'>
+    <main className='mb-auto'>
+      <ProductCarousel />
       <div className="flex flex-col items-center justify-between p-5 font-medium">
+        <h1 className="text-3xl font-semibold text-black sm:text-xl md:text-3xl">
+          New Arrivals
+        </h1>
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
         {data && data.length === 0 && <p>No products available in the inventory.</p>}
         {data && data.length > 0 && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {data.map(item => (
               <div className="flex flex-col" key={item[0]}>
                 <div className="bg-white shadow-md rounded-lg p-4">
                   <img src={`http://localhost:8000/static/images/${item[5]}`} className="w-full h-48 object-cover" alt="Product" />
                   <div className="mt-4">
-                    <h5 className="text-xl font-semibold">{item[1]}</h5>
-                    <p className="text-gray-600">Price: Rp.{item[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-                    <span className="text-gray-600">{item[4]} in stock</span>
+                    <h5 className="text-xl font-semibold flex justify-center">{item[1]}</h5>
                   </div>
                 </div>
               </div>

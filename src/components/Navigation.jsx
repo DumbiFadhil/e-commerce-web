@@ -26,7 +26,7 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="flex sm:justify-center space-x-4">
+    <nav className="flex sm:justify-center space-x-4 mb-2">
       {[
         ['Home', '/'],
         ['Products', '/product'],
@@ -44,7 +44,7 @@ export const Navbar = () => {
                   onMouseEnter={keepDropdownOpen}
                   onClick={handleDropdownToggle}
                 >
-                  <span className="inline-block mr-2">{title}</span>
+                  <span className="inline-block mr-2 text-lg">{title}</span>
                   <svg
                     className="w-4 h-4"
                     aria-hidden="true"
@@ -89,7 +89,7 @@ export const Navbar = () => {
         return (
           <a
             href={url}
-            className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900"
+            className="rounded-lg text-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900"
             key={title}
           >
             {title}
