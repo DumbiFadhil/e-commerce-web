@@ -66,7 +66,12 @@ export const ContactUs = () => {
               </div>
             </div>
             <div className="flex justify-end items-center">
-              <button type="submit" className='rounded-lg hover:text-white font-medium bg-slate-700 text-slate-300 w-20 h-10'>Submit</button>
+              <button
+                type="submit"
+                className='rounded-lg hover:text-white font-medium bg-slate-700 text-slate-300 w-20 h-10'
+              >
+                Submit
+              </button>
             </div>
           </form>
         </div>

@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { SearchQuery } from '../components/SearchQuery';
+import { ProductCard } from '../components/ProductCard';
 
 export const ProductCatalogue = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [query, setQuery] = useState('');
+  const [debouncedQuery, setDebouncedQuery] = useState('');
 
   useEffect(() => {
     fetch('http://127.0.0.1:5000/product-data')
@@ -19,29 +23,36 @@ export const ProductCatalogue = () => {
       });
   }, []);
 
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      setDebouncedQuery(query);
+    }, 300); // Adjust the debounce delay as per your requirements (e.g., 500ms)
+
+    return () => clearTimeout(debounceTimer);
+  }, [query]);
+
+  const filteredData = data ? data.filter(item => item[1].toLowerCase().includes(debouncedQuery.toLowerCase())) : [];
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+
   return (
     <main className="mb-auto">
       <div className="flex flex-col items-center justify-between p-5 font-medium">
+        <SearchQuery query={query} handleChange={handleChange} /> {/* Use the Header component */}
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
-        {data && data.length === 0 && <p>No products available in the inventory.</p>}
-        {data && data.length > 0 && (
+        {filteredData.length === 0 && <p>No matching products found.</p>}
+        {filteredData.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {data.map(item => (
-              <div className="flex flex-col" key={item[0]}>
-                <div className="bg-white shadow-md rounded-lg p-4">
-                  <img src={`http://localhost:8000/static/images/${item[5]}`} className="w-full h-48 object-cover" alt="Product" />
-                  <div className="mt-4">
-                    <h5 className="text-xl font-semibold">{item[1]}</h5>
-                    <p className="text-gray-600">Price: Rp{item[3].toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')}</p>
-                    <span className="text-gray-600">{item[4]} in stock</span>
-                  </div>
-                </div>
-              </div>
+            {filteredData.map(item => (
+              <ProductCard>{item}</ProductCard>
             ))}
           </div>
         )}
-        {!isLoading && !error && !data && <p>No products available.</p>}
+        {!isLoading && !error && filteredData.length === 0 && <p>No products available.</p>}
       </div>
     </main>
   );

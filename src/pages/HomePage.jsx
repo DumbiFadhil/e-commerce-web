@@ -35,7 +35,7 @@ export const HomePage = () => {
             {data.map(item => (
               <div className="flex flex-col" key={item[0]}>
                 <div className="bg-white shadow-md rounded-lg p-4">
-                  <img src={`http://localhost:8000/static/images/${item[5]}`} className="w-full h-48 object-cover" alt="Product" />
+                  <img src={`http://localhost:8000/static/images/${item[4]}`} className="w-full h-48 object-cover" alt="Product" />
                   <div className="mt-4">
                     <h5 className="text-xl font-semibold flex justify-center">{item[1]}</h5>
                   </div>

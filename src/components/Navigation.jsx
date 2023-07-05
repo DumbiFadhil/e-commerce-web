@@ -21,12 +21,12 @@ export const Navbar = () => {
   const categories = [
     ['Laptop', '/categories/laptop'],
     ['Audio', '/categories/audio'],
-    ['Accessories', '/categories/accessory'],
+    ['Accessory', '/categories/accessory'],
     ['Gaming', '/categories/gaming'],
   ];
 
   return (
-    <nav className="flex sm:justify-center space-x-4 mb-2">
+    <nav className="flex sm:justify-center space-x-4">
       {[
         ['Home', '/'],
         ['Products', '/product'],
@@ -65,7 +65,7 @@ export const Navbar = () => {
               </div>
               {showDropdown && (
                 <div
-                  className="origin-top-right absolute mt-0 w-56 bg-white shadow-lg"
+                  className="origin-top-right absolute mt-0 w-56 bg-white shadow-lg rounded-b-2xl"
                   onMouseOver={keepDropdownOpen}
                   onMouseLeave={handleDropdownTimeout}
                 >
@@ -73,7 +73,7 @@ export const Navbar = () => {
                     {categories.map(([categoryTitle, categoryUrl]) => (
                       <a
                         href={categoryUrl}
-                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-b-2xl"
                         key={categoryUrl}
                       >
                         {categoryTitle}

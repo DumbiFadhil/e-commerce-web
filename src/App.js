@@ -7,15 +7,13 @@ import { ProductCatalogue } from './pages/ProductCatalogue';
 import { FilteredCatalogue } from './pages/FilteredCatalogue';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
-import { Navbar } from './components/Navigation';
 
 
 function App() {
   return (
     <>
       <Header />
-      <Navbar />
-      <div>
+      <div className='min-h-screen'>
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='product' element={<ProductCatalogue />} />

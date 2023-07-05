@@ -26,16 +26,17 @@ const productList = [
     height: "tall",
   },
   {
-    href: "https://headfonics.com/wp-content/uploads/2023/06/Moondrop-Blessing-3-Review-featured-image.jpg",
-    brand: "Moondrop",
-    name: "Blessing 3",
+    href: "https://cdn.discordapp.com/attachments/879733859372130376/1125440220779790408/MSI-Stealth-GS77.jpg",
+    brand: "MSI",
+    name: "Stealth GS77",
     bgcolor: "dark",
-    height: "short",
+    height: "tall",
   },
 ];
 
 export const ProductCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const carouselSettings = {
     dots: true,
@@ -49,31 +50,63 @@ export const ProductCarousel = () => {
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
   };
 
+  const handleImageLoad = () => {
+    setIsLoaded(true);
+  };
+
   return (
     <div className="relative -pb-10">
-      <Slider {...carouselSettings} className='overflow-hidden'>
+      <Slider {...carouselSettings} className="overflow-hidden">
         {productList.map((item) => (
           <div key={item.href}>
-            <img className="object-cover w-full h-full" src={item.href} alt="Card 1" />
+            <img
+              className="object-cover w-full h-full"
+              src={item.href}
+              alt="Card 1"
+              onLoad={handleImageLoad}
+            />
           </div>
         ))}
       </Slider>
-      <div className="absolute inset-0 flex items-center justify-end">
-        <div className={`text-right mr-10 ${productList[currentSlide].height === "tall" ? "mt-96" : "mt-20"}`}>
-          <h1 className={`text-lg font-bold ${productList[currentSlide].bgcolor === "dark" ? "text-white" : "text-black"} sm:text-lg md:text-lg uppercase`}>
-            New Arrivals
-          </h1>
-          <h3 className={`text-4xl font-bold ${productList[currentSlide].bgcolor === "dark" ? "text-white" : "text-black"} sm:text-4xl md:text-5xl`}>
-            {productList[currentSlide].brand}
-          </h3>
-          <h5 className={`text-2xl ${productList[currentSlide].bgcolor === "dark" ? "text-white" : "text-black"} sm:text-2xl md:text-3xl`}>
-            {productList[currentSlide].name}
-          </h5>
-          <button className={`${productList[currentSlide].bgcolor === "light" ? "text-white text-outline-white bg-black" : "text-black bg-white"} btn rounded-lg px-6 py-3 mt-4 text-lg font-medium`}>
-            Order Now
-          </button>
+      {isLoaded && (
+        <div className="absolute inset-0 flex items-center justify-end">
+          {/* Content to render after image is loaded */}
+          <div
+            className={`text-right mr-10 ${productList[currentSlide].height === "tall" ? "mt-96" : "mt-20"
+              } ${productList[currentSlide].bgcolor === "light"
+                ? "bg-black bg-opacity-10"
+                : "bg-white bg-opacity-10"
+              } p-6 rounded-lg`}
+          >
+            <h1
+              className={`text-lg font-bold ${productList[currentSlide].bgcolor === "dark" ? "text-white" : "text-black"
+                } sm:text-lg md:text-lg uppercase`}
+            >
+              New Arrivals
+            </h1>
+            <h3
+              className={`text-4xl font-bold ${productList[currentSlide].bgcolor === "dark" ? "text-white" : "text-black"
+                } sm:text-4xl md:text-5xl`}
+            >
+              {productList[currentSlide].brand}
+            </h3>
+            <h5
+              className={`text-2xl ${productList[currentSlide].bgcolor === "dark" ? "text-white" : "text-black"
+                } sm:text-2xl md:text-3xl`}
+            >
+              {productList[currentSlide].name}
+            </h5>
+            <button
+              className={`${productList[currentSlide].bgcolor === "light"
+                  ? "text-white text-outline-white bg-black"
+                  : "text-black bg-white"
+                } btn rounded-lg px-6 py-3 mt-4 text-lg font-medium outline-8 outline-black`}
+            >
+              Order Now
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
