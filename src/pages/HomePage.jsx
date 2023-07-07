@@ -9,7 +9,7 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/new-arrival');
+        const response = await fetch('http://192.168.1.7:5000/new-arrival');
         const data = await response.json();
         setData(data);
         setIsLoading(false);

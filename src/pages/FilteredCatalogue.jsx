@@ -12,7 +12,7 @@ export const FilteredCatalogue = () => {
   const [debouncedQuery, setDebouncedQuery] = useState('');
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:5000/filtered-data/${product_category}`)
+    fetch(`http://192.168.1.7:5000/filtered-data/${product_category}`)
       .then(response => response.json())
       .then(data => {
         setData(data);
