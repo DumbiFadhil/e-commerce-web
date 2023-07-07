@@ -28,7 +28,6 @@ export const Navbar = () => {
   return (
     <nav className="flex sm:justify-center space-x-4">
       {[
-        ['Home', '/'],
         ['Products', '/product'],
         ['Categories', categories],
         ['About', '/about'],

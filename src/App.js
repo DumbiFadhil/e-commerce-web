@@ -3,8 +3,8 @@ import './App.css';
 import { HomePage } from './pages/HomePage';
 import { AboutUs } from './pages/AboutUs';
 import { ContactUs } from './pages/ContactForm';
-import { ProductCatalogue } from './pages/ProductCatalogue';
-import { FilteredCatalogue } from './pages/FilteredCatalogue';
+import ProductCatalogue from './pages/ProductCatalogue';
+import FilteredCatalogue from './pages/FilteredCatalogue';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Header />
-      <div className='min-h-screen'>
+      <div className='min-h-screen bg-slate-100'>
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='product' element={<ProductCatalogue />} />

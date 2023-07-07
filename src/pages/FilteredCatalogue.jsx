@@ -44,7 +44,7 @@ export const FilteredCatalogue = () => {
         <SearchQuery query={query} handleChange={handleChange} /> {/* Use the Header component */}
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
-        {filteredData.length === 0 && <p>No matching products found.</p>}
+        {filteredData.length === 0  && <p>No matching products found.</p>}
         {filteredData.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {filteredData.map(item => (
