@@ -9,7 +9,12 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://192.168.1.7:5000/new-arrival');
+        const response = await fetch('https://2119-110-137-192-7.ngrok-free.app/new-arrival', {
+          method: 'GET',
+          headers: new Headers({
+            "ngrok-skip-browser-warning": "12345",
+          }),
+        });
         const data = await response.json();
         setData(data);
         setIsLoading(false);

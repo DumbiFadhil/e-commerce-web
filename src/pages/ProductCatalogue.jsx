@@ -10,7 +10,12 @@ export const ProductCatalogue = () => {
   const [debouncedQuery, setDebouncedQuery] = useState('');
 
   useEffect(() => {
-    fetch('http://192.168.1.7:5000/product-data')
+    fetch('https://2119-110-137-192-7.ngrok-free.app/product-data', {
+      method: 'GET',
+      headers: new Headers({
+        "ngrok-skip-browser-warning": "12345",
+      }),
+    })
       .then(response => response.json())
       .then(data => {
         setData(data);
