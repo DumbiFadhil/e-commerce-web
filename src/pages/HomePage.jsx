@@ -46,7 +46,7 @@ export const HomePage = () => {
             </h1>
             {data.map(item => (
               <button
-                onClick={handleClick(item[0])}
+                onClick={() => handleClick(item[0])}
                 key={item[0]}
               >
                 <div className="flex flex-col" key={item[0]}>
