@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { ProductCarousel } from '../components/Carousel';
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+  const handleClick = (param) => {
+    navigate(`/product/${param}`);
+  };
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,32 +26,38 @@ export const HomePage = () => {
         setIsLoading(false);
       }
     };
-  
+
     fetchData();
   }, []);
-    
+
 
   return (
     <main className='mb-auto'>
       <ProductCarousel />
       <div className="flex flex-col items-center justify-between p-5 font-medium">
-        <h1 className="text-3xl mt-20 mb-8 font-semibold text-black sm:text-xl md:text-3xl">
-          New Arrivals
-        </h1>
+
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
         {data && data.length === 0 && <p>No products available in the inventory.</p>}
         {data && data.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <h1 className="text-3xl mt-20 mb-8 font-semibold text-black sm:text-xl md:text-3xl">
+              New Arrivals
+            </h1>
             {data.map(item => (
-              <div className="flex flex-col" key={item[0]}>
-                <div className="bg-white shadow-md rounded-lg p-4">
-                  <img src={`https://e-commerce-web-lake.vercel.app/images/${item[4]}`} className="w-full h-48 object-cover" alt="Product" />
-                  <div className="mt-4">
-                    <h5 className="text-xl font-semibold flex justify-center">{item[1]}</h5>
+              <button
+                onClick={handleClick(item[0])}
+                key={item[0]}
+              >
+                <div className="flex flex-col" key={item[0]}>
+                  <div className="bg-white shadow-md rounded-lg p-4">
+                    <img src={`https://e-commerce-web-lake.vercel.app/images/${item[4]}`} className="w-full h-48 object-cover" alt="Product" />
+                    <div className="mt-4">
+                      <h5 className="text-xl font-semibold flex justify-center">{item[1]}</h5>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         )}

@@ -25,14 +25,16 @@ export const Navbar = () => {
     ['Gaming', '/categories/gaming'],
   ];
 
+  const navlinks = [
+    ['Products', '/product'],
+    ['Categories', categories],
+    ['About', '/about'],
+    ['Contacts', '/contact'],
+  ];
+
   return (
-    <nav className="flex sm:justify-center space-x-4">
-      {[
-        ['Products', '/product'],
-        ['Categories', categories],
-        ['About', '/about'],
-        ['Contacts', '/contact'],
-      ].map(([title, url]) => {
+    <nav className="flex flex-col md:flex-row space-x-4 ">
+      {navlinks.map(([title, url]) => {
         if (title === 'Categories') {
           return (
             <div className="relative inline-block text-left z-50" key={title}>
