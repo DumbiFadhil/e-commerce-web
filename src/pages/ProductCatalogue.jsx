@@ -10,24 +10,21 @@ export const ProductCatalogue = () => {
   const [debouncedQuery, setDebouncedQuery] = useState('');
 
   useEffect(() => {
-    fetch('https://fastapi-1-k5961008.deta.app/product-data', {
-      method: 'GET',
-      headers: new Headers({
-        "ngrok-skip-browser-warning": "12345",
-      }),
-    })
-      .then(response => response.json())
-      .then(data => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://fastapi-1-k5961008.deta.app/product-data');
+        const data = await response.json();
         setData(data);
         setIsLoading(false);
-      })
-      .catch(error => {
+      } catch (error) {
         setError('Error fetching data.');
-        console.log(error)
+        console.log(error);
         setIsLoading(false);
-      });
+      }
+    };
+  
+    fetchData();
   }, []);
-
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       setDebouncedQuery(query);
