@@ -12,7 +12,7 @@ export const FilteredCatalogue = () => {
   const [debouncedQuery, setDebouncedQuery] = useState('');
 
   useEffect(() => {
-    fetch(`https://2119-110-137-192-7.ngrok-free.app/filtered-data/${product_category}`, {
+    fetch(`https://53456f691260-446322947730836763.ngrok-free.app/filtered-data/${product_category}`, {
       method: 'GET',
       headers: new Headers({
         "ngrok-skip-browser-warning": "12345",
@@ -49,7 +49,7 @@ export const FilteredCatalogue = () => {
         <SearchQuery query={query} handleChange={handleChange} /> {/* Use the Header component */}
         {isLoading && <p>Loading...</p>}
         {error && <p>Error: {error}</p>}
-        {filteredData.length === 0  && <p>No matching products found.</p>}
+        {filteredData.length === 0  && !isLoading && !error && <p>No matching products found.</p>}
         {filteredData.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {filteredData.map(item => (
@@ -57,7 +57,6 @@ export const FilteredCatalogue = () => {
             ))}
           </div>
         )}
-        {!isLoading && !error && filteredData.length === 0 && <p>No products available.</p>}
       </div>
     </main>
   );

@@ -8,7 +8,7 @@ export const SearchQuery = ({ query, handleChange }) => {
         <div className="relative flex">
           <input
             type="search"
-            className="w-96 pr-12 h-10 rounded-lg"
+            className="w-72 pr-12 h-10 rounded-lg"
             value={query}
             onChange={handleChange}
             placeholder="Search products"

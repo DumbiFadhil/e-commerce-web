@@ -10,7 +10,7 @@ export const ProductCatalogue = () => {
   const [debouncedQuery, setDebouncedQuery] = useState('');
 
   useEffect(() => {
-    fetch('https://2119-110-137-192-7.ngrok-free.app/product-data', {
+    fetch('https://53456f691260-446322947730836763.ngrok-free.app/product-data', {
       method: 'GET',
       headers: new Headers({
         "ngrok-skip-browser-warning": "12345",
@@ -57,7 +57,6 @@ export const ProductCatalogue = () => {
             ))}
           </div>
         )}
-        {!isLoading && !error && filteredData.length === 0 && <p>No products available.</p>}
       </div>
     </main>
   );
