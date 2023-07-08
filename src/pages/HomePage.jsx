@@ -9,12 +9,7 @@ export const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('https://53456f691260-446322947730836763.ngrok-free.app/new-arrival', {
-          method: 'GET',
-          headers: new Headers({
-            "ngrok-skip-browser-warning": "12345",
-          }),
-        });
+        const response = await fetch('https://fastapi-1-k5961008.deta.app/new-arrival');
         const data = await response.json();
         setData(data);
         setIsLoading(false);

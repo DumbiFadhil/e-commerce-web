@@ -10,7 +10,7 @@ export const ProductCatalogue = () => {
   const [debouncedQuery, setDebouncedQuery] = useState('');
 
   useEffect(() => {
-    fetch('https://53456f691260-446322947730836763.ngrok-free.app/product-data', {
+    fetch('https://fastapi-1-k5961008.deta.app/product-data', {
       method: 'GET',
       headers: new Headers({
         "ngrok-skip-browser-warning": "12345",

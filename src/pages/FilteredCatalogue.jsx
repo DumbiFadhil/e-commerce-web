@@ -12,7 +12,7 @@ export const FilteredCatalogue = () => {
   const [debouncedQuery, setDebouncedQuery] = useState('');
 
   useEffect(() => {
-    fetch(`https://53456f691260-446322947730836763.ngrok-free.app/filtered-data/${product_category}`, {
+    fetch(`https://fastapi-1-k5961008.deta.app/filtered-data/${product_category}`, {
       method: 'GET',
       headers: new Headers({
         "ngrok-skip-browser-warning": "12345",
