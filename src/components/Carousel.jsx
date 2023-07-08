@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const productList = [
   {
-    href: "https://waifu2x.booru.pics/outfiles/6ddd1beb806ef3753918b799bf44590e53242ee1_s2_n2_y2.jpg",
+    href: "https://cdn.discordapp.com/attachments/879733859372130376/1127077290589818880/6ddd1beb806ef3753918b799bf44590e53242ee1_s2_n2_y2.jpg",
     brand: "Acer",
     name: "Nitro 16 & 17",
     bgcolor: "dark",
