@@ -20,7 +20,7 @@ export const Header = () => {
         <div className="flex items-center justify-between m-5 mt-3">
           <div className="w-30">
             <a href="/">
-              <h1 className="font-bold text-4xl">Brand Logo</h1>
+              <h1 className="font-bold text-4xl">TechHub</h1>
             </a>
           </div>
           <div>
