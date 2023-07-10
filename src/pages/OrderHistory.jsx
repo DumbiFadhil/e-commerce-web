@@ -68,7 +68,7 @@ const OrderHistory = () => {
                       </ul>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      Rp{order.total}
+                      Rp{(order.total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className="flex items-center">
