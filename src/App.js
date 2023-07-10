@@ -12,6 +12,7 @@ import Profile from './modules/profile';
 import Cart from './pages/ShoppingCart';
 import { Wishlist } from './pages/Whishlist';
 import OrderHistory from './pages/OrderHistory';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         </Routes>
       </div>
       <Footer />
+      <Analytics />
     </>
   );
 }
