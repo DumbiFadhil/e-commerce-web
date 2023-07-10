@@ -37,7 +37,7 @@ export const Navbar = () => {
       {navlinks.map(([title, url]) => {
         if (title === 'Categories') {
           return (
-            <div className="relative inline-block text-right z-50" key={title}>
+            <div className="relative inline-block text-left z-50" key={title}>
               <div onMouseLeave={handleDropdownTimeout}>
                 <button
                   className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900 flex items-center"
