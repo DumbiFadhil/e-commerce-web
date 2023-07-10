@@ -33,11 +33,11 @@ export const Navbar = () => {
   ];
 
   return (
-    <nav className="flex flex-col md:flex-row space-x-4 ">
+    <nav className="flex flex-col md:flex-row space-x-4">
       {navlinks.map(([title, url]) => {
         if (title === 'Categories') {
           return (
-            <div className="relative inline-block text-left z-50" key={title}>
+            <div className="relative inline-block text-right z-50" key={title}>
               <div onMouseLeave={handleDropdownTimeout}>
                 <button
                   className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900 flex items-center"
@@ -70,11 +70,11 @@ export const Navbar = () => {
                   onMouseOver={keepDropdownOpen}
                   onMouseLeave={handleDropdownTimeout}
                 >
-                  <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                  <div className="py-1 divide-y divide-gray-200" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                     {categories.map(([categoryTitle, categoryUrl]) => (
                       <a
                         href={categoryUrl}
-                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-b-2xl"
+                        className="block px-4 py-2 text-gray-800 rounded-b-2xl"
                         key={categoryUrl}
                       >
                         {categoryTitle}

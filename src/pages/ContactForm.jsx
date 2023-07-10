@@ -33,7 +33,7 @@ export const ContactUs = () => {
               <div className="flex-1">
                 <input
                   type="text"
-                  className="w-full"
+                  className="w-full border border-black px-2"
                   id="inputName3"
                   name="user_name"
                   required
@@ -45,7 +45,7 @@ export const ContactUs = () => {
               <div className="flex-1">
                 <input
                   type="email"
-                  className="w-full"
+                  className="w-full border border-black px-2"
                   id="inputEmail3"
                   name="user_email"
                   required

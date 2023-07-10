@@ -8,7 +8,10 @@ import FilteredCatalogue from './pages/FilteredCatalogue';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { ProductDetail } from './pages/ProductDetail';
-
+import Profile from './modules/profile';
+import Cart from './pages/ShoppingCart';
+import { Wishlist } from './pages/Whishlist';
+import OrderHistory from './pages/OrderHistory';
 
 function App() {
   return (
@@ -22,6 +25,10 @@ function App() {
           <Route path='about' element={<AboutUs />} />
           <Route path='contact' element={<ContactUs />} />
           <Route path='product/:product_id' element={<ProductDetail />} />
+          <Route path='profile' element={<Profile />} />
+          <Route path='checkout' element={<Cart />} />
+          <Route path='wishlist' element={<Wishlist />} />
+          <Route path='orders' element={<OrderHistory />} />
         </Routes>
       </div>
       <Footer />

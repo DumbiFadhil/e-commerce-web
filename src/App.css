@@ -2,16 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.App {
-  text-align: center;
-}
 
 main {
   height: fit-content;
   margin-bottom: 400px;
 }
 
-input,
+input .contact-form,
 textarea {
   border: 1px solid;
   text-indent: 10px;
@@ -42,6 +39,16 @@ input[type="search"]::-webkit-search-cancel-button {
   font-size: 14px;
   cursor: pointer;
   padding: 2px;
+}
+
+.custom-number-input::-webkit-inner-spin-button,
+.custom-number-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+.custom-number-input {
+  -moz-appearance: textfield;
 }
 
 input[type="search"]::-webkit-search-cancel-button:before {

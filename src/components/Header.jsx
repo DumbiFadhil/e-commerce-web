@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Navbar } from './Navigation';
 import { UserLogo } from "./UserInterface";
+import logo from "../logo512.png";
 
 export const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -18,9 +19,10 @@ export const Header = () => {
           </div>
         </div>
         <div className="flex items-center justify-between m-5 mt-3">
-          <div className="w-30">
-            <a href="/">
-              <h1 className="font-bold text-4xl">TechHub</h1>
+          <div className="w-40 grid grid-cols-auto-1fr gap-2 items-center">
+            <a href="/" className="flex items-center">
+              <img src={logo} alt="Logo" width={80} className="mr-2 drop-shadow-2xl" />
+              <span className="font-bold text-4xl">TechHub</span>
             </a>
           </div>
           <div>
@@ -33,8 +35,8 @@ export const Header = () => {
                 </button>
               </div>
             </div>
-            <div className="mx-auto">
-              <div className="hidden md:block">
+            <div>
+              <div className="hidden md:block ml-20">
                 <Navbar />
               </div>
             </div>
@@ -45,10 +47,12 @@ export const Header = () => {
         </div>
         {showMenu && (
           <div className="md:hidden">
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-end">
               <UserLogo />
             </div>
+            <div className="flex justify-end">
             <Navbar />
+            </div>
           </div>
         )}
       </div>

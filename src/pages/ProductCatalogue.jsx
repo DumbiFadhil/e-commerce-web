@@ -25,6 +25,7 @@ export const ProductCatalogue = () => {
   
     fetchData();
   }, []);
+  
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
       setDebouncedQuery(query);
