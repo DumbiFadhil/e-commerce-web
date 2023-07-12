@@ -8,7 +8,7 @@ import FilteredCatalogue from './pages/FilteredCatalogue';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { ProductDetail } from './pages/ProductDetail';
-import Profile from './modules/profile';
+import Profile from './utils/profile';
 import Cart from './pages/ShoppingCart';
 import { Wishlist } from './pages/Whishlist';
 import OrderHistory from './pages/OrderHistory';

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import LogoutButton from "../modules/logout";
-import LoginButton from "../modules/login";
+import LogoutButton from "../utils/logout";
+import LoginButton from "../utils/login";
 import { useAuth0 } from "@auth0/auth0-react";
 
 export const UserLogo = () => {
