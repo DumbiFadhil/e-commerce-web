@@ -1,19 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 export const AboutUs = () => {
+  const [motto, setMotto] = useState("");
+
+  useEffect(() => {
+
+    const getRandomStatus = async () => {
+      const mottos = [
+        ["Revolutionizing the way you experience technology."],
+        ["Unleash your potential with our premium tech selection."],
+        ["Quality and innovation - our keys to unlocking limitless possibilities."],
+        ["Passionate experts dedicated to guiding you on your tech journey."],
+        ["Your satisfaction is our priority - we go above and beyond."],
+        ["Innovative technology for the modern world."],
+        ["Empowering your digital lifestyle."],
+        ["Experience the future of computing."],
+        ["Your one-stop-shop for all things tech."],
+        ["Revolutionize your work and play with our tech."],
+        ["Elevate your digital experience with our premium tech selection."]
+      ];
+      const randomIndex = Math.floor(Math.random() * mottos.length);
+      setMotto(mottos[randomIndex]);
+    };
+
+    getRandomStatus();
+  }, []);
+
   return (
-    <section className="h-screen">
+    <section>
       <div className="flex flex-col items-center justify-between">
-        <div className="text-center pt-8 pb-2">
-          <h1 className="text-3xl font-bold text-slate-900">About Us</h1>
-        </div>
-        <div className="rounded-full mx-auto bg-slate-700 h-1 w-20 mt-1 mb-10"></div>
-        <div className="text-center">
-          <p className="text-slate-900 text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br></br> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
+        <div className="text-center mx-40 px-20 mt-10">
+          <h1 className="font-semibold text-4xl mb-2">Welcome to TechHub </h1>
+          <h1 className="font-semibold text-2xl text-gray-700 mb-5">Your Gateway to Cutting-Edge Technology!</h1>
+          <p className="text-lg text-justify font-medium">At TechHub, we are passionate about revolutionizing the way you experience technology. Our mission is to provide you with a one-stop destination for all your computer tech needs. Whether you're a gaming enthusiast, a tech-savvy professional, or someone simply seeking to enhance your digital lifestyle, we've got you covered.</p>
 
-        <div className="mt-10 grid gap-14 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+          <h1 className="font-semibold text-2xl text-gray-700 my-5 mt-10">Unleash Your Potential with TechHub's Premium Selection:</h1>
+          <p className="text-lg text-justify font-medium">Discover an unparalleled range of top-notch computer techs meticulously curated to elevate your productivity, enhance your creativity, and ignite your imagination. From high-fidelity in-ear monitors that transport you into a world of immersive soundscapes to lightning-fast gaming keyboards engineered for precision, our collection is designed to amplify your digital journey.</p>
 
+          <h1 className="font-semibold text-2xl text-gray-700 my-5 mt-10">Quality Meets Innovation:</h1>
+          <p className="text-lg text-justify font-medium">We understand that technology is not just about gadgets; it's about the experiences they enable. That's why, at TechHub, we partner with industry-leading brands known for their unwavering commitment to quality and innovation. Every product we offer undergoes rigorous testing to ensure it meets our stringent standards, empowering you to push boundaries and unlock limitless possibilities.</p>
+
+          <h1 className="font-semibold text-2xl text-gray-700 my-5 mt-10">Passionate Experts at Your Service:</h1>
+          <p className="text-lg text-justify font-medium">At the heart of TechHub lies a team of dedicated tech enthusiasts who live and breathe innovation. Our knowledgeable experts are here to guide you every step of the way, helping you navigate the ever-evolving landscape of computer tech. Whether you need assistance choosing the perfect laptop, troubleshooting an issue, or seeking recommendations tailored to your specific needs, our team is committed to delivering unparalleled customer support.</p>
+
+          <h1 className="font-semibold text-2xl text-gray-700 my-5 mt-10">Your Satisfaction, Our Priority:</h1>
+          <p className="text-lg text-justify font-medium">At TechHub, we believe in building lasting relationships with our customers. Your satisfaction is our driving force, and we go above and beyond to ensure your shopping experience with us is seamless and enjoyable. From hassle-free ordering to secure and prompt delivery, we prioritize your needs to provide a stress-free journey from the moment you land on our website.</p>
+
+          <h1 className="font-semibold text-2xl text-gray-700 my-5 mt-10">Join the TechHub Community:</h1>
+          <p className="text-lg text-justify font-medium">When you shop at TechHub, you become part of a vibrant community of tech enthusiasts. Connect with like-minded individuals, stay up-to-date with the latest tech trends, and gain exclusive access to special promotions and events. Together, let's explore the boundless world of technology and inspire each other to reach new heights.</p>
+
+          <h5 className="font-semibold italic font-serif mt-16 text-2xl text-gray-900">
+            "{motto}"
+          </h5>
+        </div>
+        <div className="rounded-full mx-auto bg-slate-700 h-1 w-20 mb-1 mt-20"></div>
+        <h2 className="text-2xl font-semibold mt-2">Meet Our Team</h2>
+        <div className="mt-5 mb-10 grid gap-14 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
           <div className="border-[2px] border-gray-300 bg-gray-100 drop-shadow-lg rounded-lg p-4 hover:shadow-xl">
             <img
               className="w-60 h-60 rounded-full mx-auto"
